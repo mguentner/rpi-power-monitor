@@ -3,8 +3,9 @@ from influxdb.exceptions import InfluxDBServerError
 from datetime import datetime
 import random
 from time import sleep
-from config import logger, db_settings, enabled_cts
 from requests.exceptions import ConnectionError
+
+from powermonitor.config import logger, db_settings, enabled_cts
 
 # For development only
 import sys, traceback

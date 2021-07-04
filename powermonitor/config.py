@@ -24,7 +24,7 @@ db_settings = {
     'port' : 8086,
     'username' : 'root',
     'password' : 'password',
-    'database' : 'power_monitor'
+    'database' : 'powerbot'
 }
 
 

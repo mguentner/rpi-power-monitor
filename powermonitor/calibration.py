@@ -1,6 +1,6 @@
 from math import sqrt
-from config import logger
-from common import collect_data
+from powermonitor.config import logger
+from powermonitor.common import collect_data
 
 def rebuild_wave(samples, v_wave, PHASECAL):
     # This function will rebuild a single voltage wave according to a single phasecal value.
@@ -11,17 +11,16 @@ def rebuild_wave(samples, v_wave, PHASECAL):
 
     # The following empty lists will hold the phase corrected voltage wave that corresponds to each individual CT sensor.
     wave = []
-    
 
     wave.append(v_wave[0])
     previous_point = v_wave[0]
-    
+
     for current_point in v_wave[1:]:
         new_point = previous_point + PHASECAL * (current_point - previous_point)
         wave.append(new_point)
         previous_point = current_point
 
-    rebuilt_wave = {        
+    rebuilt_wave = {
         'new_v' : wave,                     # Rebuilt voltage wave
         'ct' : samples,                     # Raw ADC output for a single CT
         'original_v' : v_wave,              # Original voltage wave samples
